@@ -16,11 +16,16 @@ from minirun_4 import *
 
 def main(file_dir):
 
+    if not os.path.isdir('selection_data/'):
+        os.makedirs('selection_data/')
+    if not os.path.isdir('plots/'):
+        os.makedirs('plots/')
+
     for filename in glob.glob(file_dir+'/*.LARNDSIM.h5'):
         file_no = filename.split(".")[-3]
         sim_h5=h5py.File(filename,'r')
         d = process_file(sim_h5)
-        save_dict_to_json(d, file_dir+"/n_tof_"+file_no, True)
+        save_dict_to_json(d, "selection_data/n_tof_"+file_no, True)
 
     calc=dict()
     for c in cuts.keys():
@@ -40,7 +45,7 @@ def main(file_dir):
     selected_proton_track_length={'initscat':[],'rescat':[],'nu':[],'other':[]}
     selected_neutron_true_ke={'initscat':[],'rescat':[],'nu':[],'other':[]}
 
-    for filename in glob.glob(file_dir+'*.json'):
+    for filename in glob.glob('selection_data/*.json'):
         print(filename)
         with open(filename) as input_file: d = json.load(input_file)
         file_ctr+=1
