@@ -14,17 +14,35 @@ sys.path.append("plots/")
 m_p=938.27208816 # [MeV/c^2]
 m_n=939.56542052 # [MeV/c^2]
 c_light=29.9792 # [cm/ns]
-cuts={'none':'No Cuts',\
-      'single_nu':r'Single LAr $\nu$',\
-      'single_proton':'Single Proton',
-      'nu_p_match':r'$\nu$-p Match',\
-      'single_particle':r'Single Visible Primary',\
-      'MIP_track':r'Single MIP Primary',\
-      'MINERvA_track':r'Track Matched to MINER$\nu$A'}
-pdg_label={3122:r'$\Lambda$',2112:'n', 2212:'p',22:r'$\gamma$',\
-           -211:r'$\pi^-$',211:r'$\pi^+$',11:'e$^-$',-11:'e$^+$',\
-           13:r'$\mu^-$',-13:r'$\mu^+$',111:'$\pi^0$',321:'K$^+$',\
-           130:r'K$^0_L$',321:r'K$^+$',-321:r'K$^-$'}
+cuts={
+    'none':'No Cuts',\
+    'single_nu':r'Single LAr $\nu$',\
+    'single_proton':'Single Proton',
+    'nu_p_match':r'$\nu$-p Match',\
+    'single_particle':r'Single Visible Primary',\
+    'MIP_track':r'Single MIP Primary',\
+    'MINERvA_track':r'Track Matched to MINER$\nu$A'
+}
+pdg_label={
+    3122:r'$\Lambda$',
+    3222:r'$\Sigma^+$',
+    3212:r'$\Sigma^0$',
+    3112:r'$\Sigma^-$',
+    2112:'n', 
+    2212:'p',
+    22:r'$\gamma$',\
+    -211:r'$\pi^-$',
+    211:r'$\pi^+$',
+    11:'e$^-$',
+    -11:'e$^+$',\
+    13:r'$\mu^-$',
+    -13:r'$\mu^+$',
+    111:'$\pi^0$',
+    321:'K$^+$',\
+    130:r'K$^0_L$',
+    321:r'K$^+$',
+    -321:r'K$^-$'
+}
 
 def get_unique_spills(sim_h5):
     return np.unique(sim_h5['trajectories']['event_id'])
