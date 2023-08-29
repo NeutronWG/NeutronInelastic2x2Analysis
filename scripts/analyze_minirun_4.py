@@ -21,11 +21,11 @@ def main(file_dir):
     if not os.path.isdir('plots/'):
         os.makedirs('plots/')
 
-    for filename in glob.glob(file_dir+'/*.LARNDSIM.h5'):
-        file_no = filename.split(".")[-3]
-        sim_h5=h5py.File(filename,'r')
-        d = process_file(sim_h5)
-        save_dict_to_json(d, "selection_data/n_tof_"+file_no, True)
+    #for filename in glob.glob(file_dir+'/*.LARNDSIM.h5'):
+    #    file_no = filename.split(".")[-3]
+    #    sim_h5=h5py.File(filename,'r')
+    #    d = process_file(sim_h5)
+    #    save_dict_to_json(d, "selection_data/n_tof_"+file_no, True)
 
     calc=dict()
     for c in cuts.keys():
